@@ -15,7 +15,17 @@ class SpacelessBladeProvider extends \Illuminate\Support\ServiceProvider
 
         //Register the Ending Tag
         Blade::directive('endspaceless', function() {
-            return "<?php echo preg_replace('/>\\s+</', '><', ob_get_clean()); ?>";
+            $replace = [
+                "/\n([\S])/" => '$1',
+                "/\r/" => '',
+                "/\n/" => '',
+                "/\t/" => '',
+                "/ +/" => ' ',
+                "/> +</" => '><',
+            ];
+            $keys = array_keys($replace);
+            $values = array_values($replace);
+            return "<?php echo preg_replace({$keys}, {$values}, ob_get_clean()); ?>";
         });
     }
 }
