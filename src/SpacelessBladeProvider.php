@@ -23,9 +23,9 @@ class SpacelessBladeProvider extends \Illuminate\Support\ServiceProvider
                 "/ +/" => ' ',
                 "/> +</" => '><',
             ];
-            $keys = array_keys($replace);
-            $values = array_values($replace);
-            return "<?php echo preg_replace({$keys}, {$values}, ob_get_clean()); ?>";
+            $keys = implode("','", array_keys($replace));
+            $values = implode("','", array_values($replace));
+            return "<?php echo preg_replace(['" . $keys . "'], ['" . $values . "'], ob_get_clean()); ?>";
         });
     }
 }
