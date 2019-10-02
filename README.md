@@ -3,7 +3,7 @@
 [![License](https://poser.pugx.org/hedronium/spaceless-blade/license)](https://packagist.org/packages/hedronium/spaceless-blade)
 [![Total Downloads](https://poser.pugx.org/hedronium/spaceless-blade/downloads)](https://packagist.org/packages/hedronium/spaceless-blade)
 
-Adds a @spaceless tag to Laravel's Blade templating engine.
+Adds a @spaceless tag to Laravel's Blade templating engine, based on https://github.com/renatomarinho/laravel-page-speed CollapseWhitespace
 
 In twig you could do:
 ```twig
